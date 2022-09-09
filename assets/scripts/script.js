@@ -149,6 +149,7 @@ function gotoPreviousSong() {
   if (isDiscPlayingNow) {
     playPauseMedia();
   }
+     random_bg_color();
 }
 
 // Go to next song
@@ -165,6 +166,7 @@ function gotoNextSong(playImmediately) {
   if (isDiscPlayingNow || playImmediately) {
     playPauseMedia();
   }
+     random_bg_color();
 }
 
 // Change song progress when clicked on progress bar
@@ -192,3 +194,17 @@ next.addEventListener('click', gotoNextSong.bind(null, false));
 
 // Move to different place in the song
 progressContainer.addEventListener('click', setProgress);
+
+function random_bg_color() {
+  // Get a random number between 64 to 256
+  // (for getting lighter colors)
+  let red = Math.floor(Math.random() * 256) + 64;
+  let green = Math.floor(Math.random() * 256) + 64;
+  let blue = Math.floor(Math.random() * 256) + 64;
+ 
+  // Construct a color withe the given values
+  let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+ 
+  // Set the background to the new color
+  document.body.style.background = bgColor;
+}
